@@ -1,0 +1,894 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Aaryan Sharma — Business Development</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;0,700;1,300&family=Space+Mono:wght@400;700&display=swap" rel="stylesheet"/>
+<style>
+  :root {
+    --bg: #0a0a0a;
+    --bg2: #111111;
+    --bg3: #181818;
+    --orange: #FF6B1A;
+    --orange2: #FF9A5C;
+    --gold: #F0C040;
+    --text: #EDEDED;
+    --muted: #888;
+    --border: #222;
+  }
+
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1.6;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed; inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.04'/%3E%3C/svg%3E");
+    pointer-events: none; z-index: 0; opacity: 0.5;
+  }
+
+  ::-webkit-scrollbar { width: 4px; }
+  ::-webkit-scrollbar-track { background: var(--bg); }
+  ::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
+
+  /* NAV */
+  nav {
+    position: fixed; top: 0; left: 0; right: 0;
+    z-index: 100;
+    display: flex; align-items: center; justify-content: space-between;
+    padding: 18px 5%;
+    background: rgba(10,10,10,0.85);
+    backdrop-filter: blur(20px);
+    border-bottom: 1px solid var(--border);
+  }
+  .nav-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.6rem; letter-spacing: 3px; color: var(--orange); }
+  .nav-links { display: flex; gap: 2rem; list-style: none; }
+  .nav-links a { font-size: 0.82rem; letter-spacing: 1.5px; text-transform: uppercase; color: var(--muted); text-decoration: none; transition: color 0.2s; font-family: 'Space Mono', monospace; }
+  .nav-links a:hover { color: var(--orange); }
+
+  /* HERO */
+  .hero {
+    min-height: 100vh;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    align-items: center;
+    padding: 100px 5% 60px;
+    position: relative;
+    overflow: hidden;
+  }
+  .hero::after {
+    content: 'GROWTH';
+    position: absolute; right: -2%; top: 50%;
+    transform: translateY(-50%) rotate(90deg);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 15vw;
+    color: rgba(255,107,26,0.04);
+    letter-spacing: 10px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .hero-text { z-index: 1; }
+  .hero-badge {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem; letter-spacing: 2px; text-transform: uppercase;
+    color: var(--orange); border: 1px solid var(--orange);
+    padding: 5px 14px; border-radius: 2px; margin-bottom: 1.5rem;
+    animation: fadeUp 0.6s ease both;
+  }
+  .hero-name {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: clamp(4rem, 8vw, 7rem);
+    line-height: 0.92; letter-spacing: 2px;
+    animation: fadeUp 0.7s 0.1s ease both;
+  }
+  .hero-name span { color: var(--orange); }
+  .hero-title { font-size: 1.1rem; color: var(--muted); font-weight: 300; margin-top: 1.2rem; letter-spacing: 1px; animation: fadeUp 0.7s 0.2s ease both; }
+  .hero-desc { margin-top: 1.5rem; font-size: 1rem; color: #aaa; max-width: 480px; line-height: 1.75; animation: fadeUp 0.7s 0.3s ease both; }
+  .hero-cta { margin-top: 2.5rem; display: flex; gap: 1rem; flex-wrap: wrap; animation: fadeUp 0.7s 0.4s ease both; }
+  .btn-primary {
+    display: inline-flex; align-items: center; gap: 8px;
+    background: var(--orange); color: #000; font-weight: 700;
+    font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 14px 28px; border-radius: 3px; text-decoration: none;
+    transition: all 0.2s; font-family: 'Space Mono', monospace;
+  }
+  .btn-primary:hover { background: var(--orange2); transform: translateY(-2px); box-shadow: 0 8px 30px rgba(255,107,26,0.35); }
+  .btn-ghost {
+    display: inline-flex; align-items: center; gap: 8px;
+    border: 1px solid var(--border); color: var(--muted);
+    font-size: 0.85rem; letter-spacing: 1.5px; text-transform: uppercase;
+    padding: 14px 28px; border-radius: 3px; text-decoration: none;
+    transition: all 0.2s; font-family: 'Space Mono', monospace;
+  }
+  .btn-ghost:hover { border-color: var(--orange); color: var(--orange); }
+
+  .hero-img-wrap { display: flex; justify-content: flex-end; align-items: flex-end; position: relative; z-index: 1; animation: fadeIn 1s 0.3s ease both; }
+  .hero-img-frame { position: relative; width: 340px; height: 420px; }
+  .hero-img-frame::before {
+    content: ''; position: absolute; inset: -12px -12px 12px 12px;
+    border: 2px solid var(--orange); border-radius: 4px; opacity: 0.5;
+  }
+  .hero-img-frame::after {
+    content: ''; position: absolute; inset: -24px -24px 24px 24px;
+    border: 1px solid rgba(255,107,26,0.2); border-radius: 4px;
+  }
+  .hero-img-frame img { width: 100%; height: 100%; object-fit: cover; object-position: top center; border-radius: 4px; display: block; filter: grayscale(20%) contrast(1.05); }
+  .hero-exp-badge {
+    position: absolute; bottom: -20px; left: -30px;
+    background: var(--orange); color: #000;
+    font-family: 'Bebas Neue', sans-serif; font-size: 1rem; letter-spacing: 2px;
+    padding: 14px 22px; border-radius: 3px; line-height: 1.2; text-align: center;
+    box-shadow: 0 8px 30px rgba(255,107,26,0.4); z-index: 2;
+  }
+  .hero-exp-badge strong { font-size: 2.2rem; display: block; }
+
+  /* STATS BAR */
+  .stats-bar {
+    background: var(--bg2); border-top: 1px solid var(--border); border-bottom: 1px solid var(--border);
+    display: grid; grid-template-columns: repeat(4, 1fr); position: relative; z-index: 1;
+  }
+  .stat-item { padding: 2rem 2.5rem; border-right: 1px solid var(--border); }
+  .stat-item:last-child { border-right: none; }
+  .stat-num { font-family: 'Bebas Neue', sans-serif; font-size: 3rem; color: var(--orange); line-height: 1; letter-spacing: 1px; }
+  .stat-label { font-size: 0.78rem; color: var(--muted); letter-spacing: 1.5px; text-transform: uppercase; margin-top: 4px; font-family: 'Space Mono', monospace; }
+
+  /* SECTION BASE */
+  section { padding: 90px 5%; position: relative; z-index: 1; }
+  .section-tag { font-family: 'Space Mono', monospace; font-size: 0.7rem; letter-spacing: 3px; text-transform: uppercase; color: var(--orange); margin-bottom: 0.5rem; display: block; }
+  .section-title { font-family: 'Bebas Neue', sans-serif; font-size: clamp(2.5rem, 5vw, 4rem); letter-spacing: 2px; line-height: 1; margin-bottom: 3rem; }
+  .section-title span { color: var(--orange); }
+
+  /* ======================================
+     ACHIEVEMENTS SECTION — CENTER STAGE
+     ====================================== */
+  .achievements-section {
+    background: var(--bg);
+    padding: 100px 5%;
+    position: relative;
+    z-index: 1;
+    overflow: hidden;
+  }
+  .achievements-section::before {
+    content: 'WINS';
+    position: absolute; left: 50%; top: 50%;
+    transform: translate(-50%, -50%);
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 28vw;
+    color: rgba(255,107,26,0.03);
+    letter-spacing: 10px;
+    pointer-events: none;
+    white-space: nowrap;
+  }
+  .achievements-header {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+  .achievements-header .section-tag { justify-content: center; display: flex; }
+  .achievements-header .section-title { text-align: center; }
+
+  /* Three category badges */
+  .ach-categories {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    flex-wrap: wrap;
+    margin-bottom: 3rem;
+  }
+  .ach-cat-badge {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.72rem;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    padding: 8px 20px;
+    border-radius: 2px;
+    border: 1px solid var(--orange);
+    color: var(--orange);
+    background: rgba(255,107,26,0.08);
+  }
+  .ach-cat-badge.active { background: var(--orange); color: #000; font-weight: 700; }
+
+  /* The big achievement box */
+  .achievements-box {
+    max-width: 1000px;
+    margin: 0 auto;
+    background: var(--bg2);
+    border: 2px solid var(--border);
+    border-top: 3px solid var(--orange);
+    border-radius: 6px;
+    position: relative;
+    overflow: hidden;
+  }
+  .achievements-box::after {
+    content: '';
+    position: absolute; top: 0; right: 0;
+    width: 200px; height: 200px;
+    background: radial-gradient(circle, rgba(255,107,26,0.08) 0%, transparent 70%);
+    pointer-events: none;
+  }
+
+  /* Box header */
+  .ach-box-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 1.5rem 2rem;
+    border-bottom: 1px solid var(--border);
+    background: var(--bg3);
+  }
+  .ach-box-title {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 1.4rem;
+    letter-spacing: 3px;
+    color: var(--orange);
+  }
+  .ach-box-meta {
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+  }
+
+  /* Scrollable content */
+  .ach-scroll-area {
+    max-height: 600px;
+    overflow-y: auto;
+    padding: 2rem;
+    scrollbar-width: thin;
+    scrollbar-color: var(--orange) var(--bg);
+  }
+  .ach-scroll-area::-webkit-scrollbar { width: 4px; }
+  .ach-scroll-area::-webkit-scrollbar-thumb { background: var(--orange); border-radius: 2px; }
+
+  /* Achievement items */
+  .ach-item {
+    display: flex;
+    gap: 1.5rem;
+    padding: 1.5rem 0;
+    border-bottom: 1px solid rgba(255,255,255,0.04);
+    align-items: flex-start;
+    opacity: 0;
+    transform: translateX(-20px);
+    transition: all 0.5s ease;
+  }
+  .ach-item.visible { opacity: 1; transform: translateX(0); }
+  .ach-item:last-child { border-bottom: none; }
+
+  .ach-num {
+    font-family: 'Bebas Neue', sans-serif;
+    font-size: 2.5rem;
+    color: rgba(255,107,26,0.2);
+    line-height: 1;
+    min-width: 60px;
+    text-align: right;
+    flex-shrink: 0;
+  }
+  .ach-content { flex: 1; }
+  .ach-tag {
+    display: inline-block;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.65rem;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    color: var(--orange);
+    background: rgba(255,107,26,0.1);
+    border: 1px solid rgba(255,107,26,0.2);
+    padding: 3px 10px;
+    border-radius: 2px;
+    margin-bottom: 0.5rem;
+  }
+  .ach-title {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 1.05rem;
+    font-weight: 700;
+    color: var(--text);
+    margin-bottom: 0.4rem;
+    line-height: 1.3;
+  }
+  .ach-desc {
+    font-size: 0.9rem;
+    color: #999;
+    line-height: 1.65;
+  }
+  .ach-highlight {
+    display: inline-block;
+    color: var(--gold);
+    font-weight: 700;
+  }
+
+  /* Mini stat pill inside achievement */
+  .ach-stat-pill {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin-top: 0.6rem;
+    background: rgba(240,192,64,0.08);
+    border: 1px solid rgba(240,192,64,0.2);
+    padding: 4px 12px;
+    border-radius: 20px;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.7rem;
+    color: var(--gold);
+    letter-spacing: 1px;
+  }
+
+  /* Scroll indicator */
+  .ach-scroll-hint {
+    text-align: center;
+    padding: 1rem;
+    font-family: 'Space Mono', monospace;
+    font-size: 0.68rem;
+    color: var(--muted);
+    letter-spacing: 1px;
+    border-top: 1px solid var(--border);
+    animation: pulse 2s infinite;
+  }
+  @keyframes pulse { 0%,100%{opacity:0.5} 50%{opacity:1} }
+
+  /* ABOUT */
+  .about-grid { display: grid; grid-template-columns: 1.2fr 1fr; gap: 60px; align-items: start; }
+  .about-text p { color: #aaa; line-height: 1.85; margin-bottom: 1.2rem; }
+  .about-text p strong { color: var(--text); }
+  .about-highlights { display: flex; flex-direction: column; gap: 1rem; margin-top: 1.5rem; }
+  .highlight-chip {
+    display: flex; align-items: center; gap: 12px;
+    background: var(--bg3); border: 1px solid var(--border);
+    border-left: 3px solid var(--orange); padding: 14px 18px;
+    border-radius: 3px; font-size: 0.9rem; color: var(--text); transition: all 0.2s;
+  }
+  .highlight-chip:hover { border-color: var(--orange); background: #1e1e1e; transform: translateX(4px); }
+  .highlight-chip .icon { font-size: 1.3rem; flex-shrink: 0; }
+
+  .edu-card {
+    background: var(--bg3); border: 1px solid var(--border);
+    padding: 2rem; border-radius: 4px; position: relative; overflow: hidden;
+  }
+  .edu-card::before {
+    content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+    background: linear-gradient(90deg, var(--orange), var(--gold));
+  }
+  .edu-card h3 { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px; margin-bottom: 0.5rem; }
+  .edu-card .edu-inst { color: var(--orange); font-size: 0.9rem; font-weight: 500; margin-bottom: 0.3rem; }
+  .edu-card .edu-period { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--muted); letter-spacing: 1px; text-transform: uppercase; }
+
+  /* SKILLS */
+  .skills-section { background: var(--bg2); }
+  .skills-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.5rem; }
+  .skill-card {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+    padding: 1.8rem; position: relative; overflow: hidden; transition: all 0.3s;
+  }
+  .skill-card:hover { border-color: var(--orange); transform: translateY(-4px); box-shadow: 0 12px 40px rgba(255,107,26,0.15); }
+  .skill-card::before {
+    content: attr(data-num); position: absolute; top: -10px; right: 10px;
+    font-family: 'Bebas Neue', sans-serif; font-size: 5rem;
+    color: rgba(255,107,26,0.06); line-height: 1; pointer-events: none;
+  }
+  .skill-card-icon { font-size: 2rem; margin-bottom: 1rem; }
+  .skill-card-title { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 1px; margin-bottom: 0.8rem; color: var(--text); }
+  .skill-tags { display: flex; flex-wrap: wrap; gap: 6px; }
+  .skill-tag {
+    font-family: 'Space Mono', monospace; font-size: 0.68rem;
+    color: var(--orange); background: rgba(255,107,26,0.08);
+    border: 1px solid rgba(255,107,26,0.2); padding: 4px 10px; border-radius: 2px; letter-spacing: 0.5px;
+  }
+
+  /* EXPERIENCE */
+  .exp-timeline { position: relative; }
+  .exp-timeline::before { content: ''; position: absolute; left: 0; top: 0; bottom: 0; width: 2px; background: linear-gradient(to bottom, var(--orange), transparent); }
+  .exp-item { padding-left: 3rem; padding-bottom: 3.5rem; position: relative; }
+  .exp-item::before { content: ''; position: absolute; left: -6px; top: 5px; width: 14px; height: 14px; background: var(--orange); border-radius: 50%; box-shadow: 0 0 0 4px rgba(255,107,26,0.2); }
+  .exp-period { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--orange); letter-spacing: 2px; text-transform: uppercase; margin-bottom: 0.5rem; }
+  .exp-role { font-family: 'Bebas Neue', sans-serif; font-size: 1.8rem; letter-spacing: 1px; line-height: 1; margin-bottom: 0.3rem; }
+  .exp-company { color: var(--muted); font-size: 0.9rem; margin-bottom: 1rem; }
+  .exp-company span { color: var(--orange2); font-weight: 500; }
+  .exp-bullets { list-style: none; display: flex; flex-direction: column; gap: 0.6rem; }
+  .exp-bullets li { font-size: 0.95rem; color: #aaa; padding-left: 1.2rem; position: relative; }
+  .exp-bullets li::before { content: '→'; position: absolute; left: 0; color: var(--orange); font-size: 0.9rem; }
+
+  /* PLATFORMS */
+  .platforms-section { background: var(--bg2); }
+  .platforms-grid { display: grid; grid-template-columns: repeat(5, 1fr); gap: 1rem; }
+  .platform-chip {
+    background: var(--bg); border: 1px solid var(--border); border-radius: 4px;
+    padding: 1.2rem 1rem; text-align: center; font-size: 0.82rem;
+    color: var(--muted); font-family: 'Space Mono', monospace; letter-spacing: 0.5px;
+    transition: all 0.25s; cursor: default;
+  }
+  .platform-chip:hover { border-color: var(--orange); color: var(--orange); background: rgba(255,107,26,0.05); transform: scale(1.04); }
+  .platform-chip .p-icon { font-size: 1.5rem; display: block; margin-bottom: 0.5rem; }
+
+  /* CONTACT */
+  .contact-section { background: linear-gradient(135deg, #0f0f0f 0%, #160d06 100%); border-top: 1px solid var(--border); }
+  .contact-inner { max-width: 700px; text-align: center; margin: 0 auto; }
+  .contact-inner p { color: var(--muted); margin-bottom: 2.5rem; font-size: 1.05rem; }
+  .contact-links { display: flex; justify-content: center; gap: 1.5rem; flex-wrap: wrap; }
+  .contact-link {
+    display: inline-flex; align-items: center; gap: 8px;
+    font-family: 'Space Mono', monospace; font-size: 0.78rem;
+    letter-spacing: 1px; text-transform: uppercase; color: var(--muted);
+    background: var(--bg3); border: 1px solid var(--border);
+    padding: 12px 22px; border-radius: 3px; text-decoration: none; transition: all 0.2s;
+  }
+  .contact-link:hover { color: var(--orange); border-color: var(--orange); background: rgba(255,107,26,0.06); }
+
+  /* FOOTER */
+  footer {
+    background: var(--bg); border-top: 1px solid var(--border);
+    padding: 2rem 5%; display: flex; align-items: center; justify-content: space-between;
+    flex-wrap: wrap; gap: 1rem; z-index: 1; position: relative;
+  }
+  footer span { font-family: 'Space Mono', monospace; font-size: 0.72rem; color: var(--muted); letter-spacing: 1px; }
+  .footer-logo { font-family: 'Bebas Neue', sans-serif; font-size: 1.4rem; letter-spacing: 3px; color: var(--orange); }
+
+  /* ANIMATIONS */
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(20px); } to { opacity: 1; transform: translateY(0); } }
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
+  /* RESPONSIVE */
+  @media (max-width: 900px) {
+    .hero { grid-template-columns: 1fr; padding-top: 120px; }
+    .hero-img-wrap { justify-content: center; margin-top: 3rem; }
+    .about-grid { grid-template-columns: 1fr; }
+    .stats-bar { grid-template-columns: repeat(2,1fr); }
+    .skills-grid { grid-template-columns: repeat(2,1fr); }
+    .platforms-grid { grid-template-columns: repeat(3,1fr); }
+  }
+  @media (max-width: 600px) {
+    .skills-grid { grid-template-columns: 1fr 1fr; }
+    .platforms-grid { grid-template-columns: repeat(2,1fr); }
+    .hero-img-frame { width: 260px; height: 320px; }
+    .ach-scroll-area { max-height: 500px; }
+    .ach-num { font-size: 1.8rem; min-width: 40px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">AARYAN</div>
+  <ul class="nav-links">
+    <li><a href="#achievements">Achievements</a></li>
+    <li><a href="#about">About</a></li>
+    <li><a href="#skills">Skills</a></li>
+    <li><a href="#experience">Experience</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-text">
+    <div class="hero-badge">// Business Development Expert</div>
+    <h1 class="hero-name">AARYAN<br/><span>SHARMA</span></h1>
+    <p class="hero-title">Growth Strategist · Lead Generation · Digital Marketing</p>
+    <p class="hero-desc">
+      I help businesses <strong>2x their growth</strong> through data-driven lead generation,
+      multi-platform strategy, and high-converting ad campaigns.
+      Operating 20+ platforms to drive real, measurable results.
+    </p>
+    <div class="hero-cta">
+      <a href="#contact" class="btn-primary">→ Let's Connect</a>
+      <a href="#achievements" class="btn-ghost">View Achievements</a>
+    </div>
+  </div>
+  <div class="hero-img-wrap">
+    <div class="hero-img-frame">
+      <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?w=400&h=500&fit=crop&crop=face" alt="Aaryan Sharma" style="width:100%;height:100%;object-fit:cover;object-position:top center;border-radius:4px;display:block;filter:grayscale(30%) contrast(1.1);"/>
+      <div class="hero-exp-badge">
+        <strong>4+</strong>
+        YRS EXP
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- STATS -->
+<div class="stats-bar" id="stats">
+  <div class="stat-item"><div class="stat-num">20+</div><div class="stat-label">Platforms Operated</div></div>
+  <div class="stat-item"><div class="stat-num">₹4L+</div><div class="stat-label">Sales in 1 Month</div></div>
+  <div class="stat-item"><div class="stat-num">1000+</div><div class="stat-label">Creatives Built</div></div>
+  <div class="stat-item"><div class="stat-num">15+</div><div class="stat-label">Dashboards Built</div></div>
+</div>
+
+<!-- ============================================
+     ACHIEVEMENTS — CENTER STAGE SECTION
+     ============================================ -->
+<section class="achievements-section" id="achievements">
+  <div class="achievements-header">
+    <span class="section-tag">// 00 — Key Achievements</span>
+    <h2 class="section-title">PROVEN <span>RESULTS</span></h2>
+  </div>
+
+  <div class="ach-categories">
+    <span class="ach-cat-badge active">Digital Marketing</span>
+    <span class="ach-cat-badge active">Business Development</span>
+    <span class="ach-cat-badge active">Operations Head</span>
+  </div>
+
+  <div class="achievements-box">
+    <div class="ach-box-header">
+      <div class="ach-box-title">★ ACHIEVEMENT RECORD — AARYAN SHARMA</div>
+      <div class="ach-box-meta">4+ Years · Ingene Fitness Pvt. Ltd. · Meerut, India</div>
+    </div>
+
+    <div class="ach-scroll-area" id="achScroll">
+
+      <div class="ach-item">
+        <div class="ach-num">01</div>
+        <div class="ach-content">
+          <span class="ach-tag">Digital Marketing · Meta Ads</span>
+          <div class="ach-title">₹4 Lakh+ Sales in a Single Month via Meta Ads</div>
+          <div class="ach-desc">
+            Drove over <span class="ach-highlight">₹4,00,000+ in sales revenue</span> in April 2025 alone through Meta Ads campaigns — showcasing exceptional ability to convert ad spend into real business revenue. Managed full campaign lifecycle from creative to targeting to conversion tracking.
+          </div>
+          <div class="ach-stat-pill">📅 April 2025 · Meta Ads · Highest Monthly Revenue</div>
+        </div>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-num">02</div>
+        <div class="ach-content">
+          <span class="ach-tag">Creative Production</span>
+          <div class="ach-title">1000+ Marketing Creatives — Almost All Went Viral</div>
+          <div class="ach-desc">
+            Personally created and deployed <span class="ach-highlight">1,000+ marketing creatives</span> across platforms including Reels, graphics, and ad visuals. The overwhelming majority of these generated strong engagement and viral reach, building massive organic visibility for the brand.
+          </div>
+          <div class="ach-stat-pill">🎨 1000+ Creatives · High Viral Rate · Multi-Platform</div>
+        </div>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-num">03</div>
+        <div class="ach-content">
+          <span class="ach-tag">Business Development · Revenue</span>
+          <div class="ach-title">Generated Lakhs in Sales Revenue for the Company</div>
+          <div class="ach-desc">
+            Through consistent digital marketing and sales efforts, <span class="ach-highlight">generated multiple lakhs in total sales revenue</span> for Ingene Fitness Pvt. Ltd. over the engagement period. Played a central role in building the brand from regional to nationally recognized.
+          </div>
+          <div class="ach-stat-pill">💰 Lakhs+ in Revenue · Company-Wide Impact</div>
+        </div>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-num">04</div>
+        <div class="ach-content">
+          <span class="ach-tag">Operations Head · Automation</span>
+          <div class="ach-title">Built Complete Company Workflow with Dashboards & Automation</div>
+          <div class="ach-desc">
+            As Operations Head, designed and implemented the <span class="ach-highlight">entire company workflow system</span> — including automated dashboards to track orders, revenue, and daily operations in real time. Reduced human effort significantly while improving accuracy and speed of execution.
+          </div>
+          <div class="ach-stat-pill">⚙️ Full Workflow · Automation · Real-Time Tracking</div>
+        </div>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-num">05</div>
+        <div class="ach-content">
+          <span class="ach-tag">Dashboards · Tech</span>
+          <div class="ach-title">Built 15+ Custom Tracking & Operations Dashboards</div>
+          <div class="ach-desc">
+            Developed <span class="ach-highlight">15+ fully functional dashboards</span> for order tracking, revenue monitoring, inventory management, and live operational status. Dashboards enabled leadership to make data-driven decisions instantly — replacing manual spreadsheet processes.
+          </div>
+          <div class="ach-stat-pill">📊 15+ Dashboards · Data-Driven Decisions · Live Tracking</div>
+        </div>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-num">06</div>
+        <div class="ach-content">
+          <span class="ach-tag">Business Development · Roles</span>
+          <div class="ach-title">Promoted to Sales & Digital Marketing Operations Head</div>
+          <div class="ach-desc">
+            After 1 year of internship, was recognized for performance and <span class="ach-highlight">promoted to Operations Head</span> for Sales and Digital Marketing — a role held for 2+ years. Led cross-functional teams, managed workflows, and owned revenue targets directly.
+          </div>
+          <div class="ach-stat-pill">🚀 1Y Internship → 2Y+ Operations Head</div>
+        </div>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-num">07</div>
+        <div class="ach-content">
+          <span class="ach-tag">High-Ticket Sales</span>
+          <div class="ach-title">Closed High-Ticket Deals & Distributor Partnerships</div>
+          <div class="ach-desc">
+            Worked on <span class="ach-highlight">high-value distributor deals and bulk orders</span>, managing end-to-end relationship from first contact to signed deal. Comfortable handling large order values and professional client negotiations at senior levels.
+          </div>
+          <div class="ach-stat-pill">🤝 Distributor Deals · High Order Value · B2B Sales</div>
+        </div>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-num">08</div>
+        <div class="ach-content">
+          <span class="ach-tag">Own Brand · Google</span>
+          <div class="ach-title">Built & Ranked Own Brand Website on Google</div>
+          <div class="ach-desc">
+            Independently built <span class="ach-highlight">www.ingenefitness.com</span> and got it ranked on Google search results — demonstrating real-world SEO, web presence, and brand-building skills beyond just managing others' properties.
+          </div>
+          <div class="ach-stat-pill">🌐 www.ingenefitness.com · Google Ranked · Self-Built</div>
+        </div>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-num">09</div>
+        <div class="ach-content">
+          <span class="ach-tag">Lead Generation · Database</span>
+          <div class="ach-title">Built Vast Lead Database Across WhatsApp, Instagram & Facebook</div>
+          <div class="ach-desc">
+            Developed and maintained a <span class="ach-highlight">large-scale database of targeted leads</span> across WhatsApp, Instagram, and Facebook. Used this to run direct outreach campaigns that consistently converted into sales — making every rupee of ad spend more efficient.
+          </div>
+          <div class="ach-stat-pill">📲 Multi-Platform Database · Direct Conversion Campaigns</div>
+        </div>
+      </div>
+
+      <div class="ach-item">
+        <div class="ach-num">10</div>
+        <div class="ach-content">
+          <span class="ach-tag">Client Management · International</span>
+          <div class="ach-title">Successfully Managed International Clients for Sportswear Brand</div>
+          <div class="ach-desc">
+            Handled communication, order management, and relationship maintenance for <span class="ach-highlight">international clients</span> of Ingene Fitness Pvt. Ltd. — a sportswear brand with global reach — building trust, retention, and repeat business.
+          </div>
+          <div class="ach-stat-pill">🌍 International Clients · Retention · Repeat Orders</div>
+        </div>
+      </div>
+
+    </div>
+    <div class="ach-scroll-hint">↕ SCROLL TO SEE ALL ACHIEVEMENTS · 10 KEY MILESTONES</div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about">
+  <span class="section-tag">// 01 — About</span>
+  <h2 class="section-title">WHO I <span>AM</span></h2>
+  <div class="about-grid">
+    <div class="about-text">
+      <p>
+        I'm <strong>Aaryan Sharma</strong>, a Business Development professional based in Meerut, India with 4+ years of hands-on experience working with international brands in the sportswear industry.
+      </p>
+      <p>
+        My expertise lies in <strong>lead generation, social media handling, and product management</strong>. I've had the privilege of driving growth for <strong>Ingene Fitness Pvt. Ltd.</strong> — an international brand — where I managed everything from Meta & Google ad campaigns to handling global clients.
+      </p>
+      <p>
+        What sets me apart? I know how to <strong>convert — not just attract</strong>. I have a vast database of WhatsApp, Instagram, and Facebook users, and I know exactly how to move them from awareness to purchase. My approach blends <strong>AI, data analytics, automation, and marketing psychology</strong> to deliver results.
+      </p>
+      <div class="about-highlights">
+        <div class="highlight-chip"><span class="icon">🏫</span> DPS Meerut — School</div>
+        <div class="highlight-chip"><span class="icon">🎓</span> IIMT College — Currently Pursuing</div>
+        <div class="highlight-chip"><span class="icon">🌐</span> www.ingenefitness.com — Personal Brand on Google</div>
+      </div>
+    </div>
+    <div>
+      <div class="edu-card">
+        <h3>DPS MEERUT</h3>
+        <div class="edu-inst">Delhi Public School, Meerut</div>
+        <div class="edu-period">Schooling — Completed</div>
+        <p style="color:#777; font-size:0.88rem; margin-top:1rem;">Strong academic foundation from one of India's premier school networks.</p>
+      </div>
+      <div class="edu-card" style="margin-top:1.2rem;">
+        <h3>IIMT COLLEGE</h3>
+        <div class="edu-inst">IIMT Group of Colleges</div>
+        <div class="edu-period">Currently Pursuing</div>
+        <p style="color:#777; font-size:0.88rem; margin-top:1rem;">Pursuing higher education while simultaneously building industry expertise.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- SKILLS -->
+<section id="skills" class="skills-section">
+  <span class="section-tag">// 02 — Skills</span>
+  <h2 class="section-title">WHAT I <span>DO</span></h2>
+  <div class="skills-grid">
+    <div class="skill-card" data-num="01">
+      <div class="skill-card-icon">🎯</div>
+      <div class="skill-card-title">Lead Generation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">WhatsApp</span>
+        <span class="skill-tag">Instagram DMs</span>
+        <span class="skill-tag">Facebook</span>
+        <span class="skill-tag">Cold Outreach</span>
+        <span class="skill-tag">Database Marketing</span>
+      </div>
+    </div>
+    <div class="skill-card" data-num="02">
+      <div class="skill-card-icon">📢</div>
+      <div class="skill-card-title">Paid Advertising</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Meta Ads</span>
+        <span class="skill-tag">Google Ads</span>
+        <span class="skill-tag">Retargeting</span>
+        <span class="skill-tag">A/B Testing</span>
+        <span class="skill-tag">Campaign Mgmt</span>
+      </div>
+    </div>
+    <div class="skill-card" data-num="03">
+      <div class="skill-card-icon">📱</div>
+      <div class="skill-card-title">Social Media</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Brand Building</span>
+        <span class="skill-tag">Content Strategy</span>
+        <span class="skill-tag">Community Mgmt</span>
+        <span class="skill-tag">Engagement</span>
+        <span class="skill-tag">20+ Platforms</span>
+      </div>
+    </div>
+    <div class="skill-card" data-num="04">
+      <div class="skill-card-icon">🤖</div>
+      <div class="skill-card-title">AI & Automation</div>
+      <div class="skill-tags">
+        <span class="skill-tag">AI Tools</span>
+        <span class="skill-tag">Dashboards</span>
+        <span class="skill-tag">Data Analytics</span>
+        <span class="skill-tag">Workflow Automation</span>
+      </div>
+    </div>
+    <div class="skill-card" data-num="05">
+      <div class="skill-card-icon">📦</div>
+      <div class="skill-card-title">Product Management</div>
+      <div class="skill-tags">
+        <span class="skill-tag">International Clients</span>
+        <span class="skill-tag">Sportswear</span>
+        <span class="skill-tag">Brand Value</span>
+        <span class="skill-tag">Product Launch</span>
+      </div>
+    </div>
+    <div class="skill-card" data-num="06">
+      <div class="skill-card-icon">📈</div>
+      <div class="skill-card-title">Business Development</div>
+      <div class="skill-tags">
+        <span class="skill-tag">Growth Strategy</span>
+        <span class="skill-tag">2X Revenue</span>
+        <span class="skill-tag">Sales Funnel</span>
+        <span class="skill-tag">Conversion</span>
+        <span class="skill-tag">Market Expansion</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXPERIENCE -->
+<section id="experience">
+  <span class="section-tag">// 03 — Experience</span>
+  <h2 class="section-title">MY <span>WORK</span></h2>
+  <div class="exp-timeline">
+    <div class="exp-item">
+      <div class="exp-period">2021 — Present · Operations Head (2Y+) · Prior: 1Y Internship</div>
+      <div class="exp-role">Operations Head — Sales & Digital Marketing</div>
+      <div class="exp-company">@ <span>Ingene Fitness Pvt. Ltd.</span> — International Sportswear Brand</div>
+      <ul class="exp-bullets">
+        <li>Drove ₹4 Lakh+ in sales in a single month (April 2025) through Meta Ads campaigns</li>
+        <li>Led end-to-end digital marketing strategy across 20+ platforms with measurable ROAS</li>
+        <li>Created 1000+ marketing creatives — majority went viral across Instagram and Facebook</li>
+        <li>Designed and built 15+ operational dashboards for order tracking, revenue, and live status monitoring</li>
+        <li>Automated entire company workflow — reducing manual effort while improving efficiency</li>
+        <li>Handled high-ticket distributor deals and bulk order negotiations successfully</li>
+        <li>Built and managed vast lead databases across WhatsApp, Instagram and Facebook for direct conversion</li>
+        <li>Managed international clients, ensuring strong retention and repeat business</li>
+      </ul>
+    </div>
+    <div class="exp-item">
+      <div class="exp-period">Ongoing</div>
+      <div class="exp-role">Founder & Digital Strategist</div>
+      <div class="exp-company">@ <span>Ingene Fitness — Own Brand</span></div>
+      <ul class="exp-bullets">
+        <li>Independently built and ranked own brand website www.ingenefitness.com on Google</li>
+        <li>Personally running Meta and Google ads campaigns for the brand</li>
+        <li>Managing full-stack digital presence — from content creation to conversion</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- PLATFORMS -->
+<section id="platforms" class="platforms-section">
+  <span class="section-tag">// 04 — Platforms</span>
+  <h2 class="section-title">I OPERATE <span>20+</span></h2>
+  <div class="platforms-grid">
+    <div class="platform-chip"><span class="p-icon">📘</span>Facebook</div>
+    <div class="platform-chip"><span class="p-icon">📸</span>Instagram</div>
+    <div class="platform-chip"><span class="p-icon">💬</span>WhatsApp</div>
+    <div class="platform-chip"><span class="p-icon">🔍</span>Google Ads</div>
+    <div class="platform-chip"><span class="p-icon">📣</span>Meta Ads</div>
+    <div class="platform-chip"><span class="p-icon">▶️</span>YouTube</div>
+    <div class="platform-chip"><span class="p-icon">🎵</span>TikTok</div>
+    <div class="platform-chip"><span class="p-icon">💼</span>LinkedIn</div>
+    <div class="platform-chip"><span class="p-icon">🐦</span>Twitter/X</div>
+    <div class="platform-chip"><span class="p-icon">📌</span>Pinterest</div>
+    <div class="platform-chip"><span class="p-icon">🤖</span>AI Tools</div>
+    <div class="platform-chip"><span class="p-icon">📊</span>Analytics</div>
+    <div class="platform-chip"><span class="p-icon">⚡</span>Automation</div>
+    <div class="platform-chip"><span class="p-icon">🛒</span>eCommerce</div>
+    <div class="platform-chip"><span class="p-icon">+ More</span></div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact" class="contact-section">
+  <div class="contact-inner">
+    <span class="section-tag" style="text-align:center; display:block;">// 05 — Contact</span>
+    <h2 class="section-title" style="text-align:center; margin-bottom:1rem;">LET'S BUILD <span>TOGETHER</span></h2>
+    <p>Want to 2X your business? Looking for a growth partner who knows how to generate leads, run ads, and convert at scale? Let's talk.</p>
+    <div class="contact-links">
+      <a href="mailto:aaryan@example.com" class="contact-link">✉ Email Me</a>
+      <a href="https://wa.me/91XXXXXXXXXX" class="contact-link">💬 WhatsApp</a>
+      <a href="https://linkedin.com" class="contact-link">💼 LinkedIn</a>
+      <a href="https://www.ingenefitness.com" class="contact-link">🌐 My Website</a>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="footer-logo">AARYAN SHARMA</span>
+  <span>© 2025 · Business Development · Meerut, India</span>
+  <span style="color:var(--orange);">OPEN FOR OPPORTUNITIES</span>
+</footer>
+
+<script>
+  // Smooth scroll
+  document.querySelectorAll('a[href^="#"]').forEach(a => {
+    a.addEventListener('click', e => {
+      e.preventDefault();
+      document.querySelector(a.getAttribute('href'))?.scrollIntoView({ behavior: 'smooth' });
+    });
+  });
+
+  // Intersection Observer for achievement items
+  const achItems = document.querySelectorAll('.ach-item');
+  const achObs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => e.target.classList.add('visible'), i * 80);
+      }
+    });
+  }, { threshold: 0.1, root: document.querySelector('#achScroll') });
+
+  // Also observe normally for page scroll
+  const pageObs = new IntersectionObserver((entries) => {
+    entries.forEach((e) => {
+      if (e.isIntersecting) {
+        const items = e.target.querySelectorAll('.ach-item');
+        items.forEach((item, i) => setTimeout(() => item.classList.add('visible'), i * 100));
+      }
+    });
+  }, { threshold: 0.1 });
+
+  const achBox = document.querySelector('.achievements-box');
+  if (achBox) pageObs.observe(achBox);
+
+  // Skill/platform card fade-in
+  const cards = document.querySelectorAll('.skill-card, .stat-item, .platform-chip, .edu-card, .exp-item');
+  const cardObs = new IntersectionObserver((entries) => {
+    entries.forEach((e, i) => {
+      if (e.isIntersecting) {
+        setTimeout(() => {
+          e.target.style.opacity = '1';
+          e.target.style.transform = 'translateY(0)';
+        }, i * 60);
+        cardObs.unobserve(e.target);
+      }
+    });
+  }, { threshold: 0.1 });
+
+  cards.forEach(el => {
+    el.style.opacity = '0';
+    el.style.transform = 'translateY(16px)';
+    el.style.transition = 'opacity 0.5s ease, transform 0.5s ease';
+    cardObs.observe(el);
+  });
+</script>
+</body>
+</html>
